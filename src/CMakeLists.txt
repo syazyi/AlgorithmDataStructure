@@ -1,0 +1,7 @@
+file(GLOB_RECURSE FILE_HEADER "*.h")
+file(GLOB_RECURSE FILE_TEST "*.cpp")
+source_group(TREE "${CMAKE_CURRENT_SOURCE_DIR}" FILES ${FILE_HEADER} ${FILE_TEST})
+if(MSVC)
+    add_executable(myLib ${FILE_HEADER} ${FILE_TEST})
+    target_include_directories(myLib PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include")
+endif()
